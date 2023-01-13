@@ -3,12 +3,42 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title><%= message %></title>
+    <title>Book</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
 </head>
 <body>
-    <p><%= message %></p>
+  <nav>
+    <form action="/konyv/uj" method="get">
+      <input type="submit" value="Új Könyv hozzáadása" />
+    </form>
+  </nav>
+  <main>
+    <form action="" method="get">
+    <input type="search" name="kereses" />
+    <input type="submit" value="Keresés" />
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <td>
+          Cím
+        </td>
+        <td>
+          Értékelés
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (let konyv of konyv) { %>
+        <tr>
+            <td><%= konyv.cim %></td>
+            <td><%= konyv.ertekeles %></td>
+        </tr>
+    <% } %>
+    </tbody>
+  </table>  
+  </main>
 </body>
 </html>
